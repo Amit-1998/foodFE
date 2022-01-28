@@ -4,15 +4,16 @@ import { useHistory } from 'react-router-dom';
 import '../Styles/login.css'
 // import axios from 'axios';
 // import { connect } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+ import { useParams } from 'react-router-dom';
 
 function ResetPassword() {
-    const history = useHistory();
+    const {token} = useParams();
     const [password, passwordSet] = useState("");
     const [confirm, setConfirm] = useState("");
+    
     const handleResetPassword=async()=>{
         try{
-            const data=await axios.post("/user/resetpassword/:token",{
+            const data=await axios.post(`/user/resetpassword/${token}`,{
                 password:password,
                 confirmPassword:confirm
             });
