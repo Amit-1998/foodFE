@@ -15,13 +15,13 @@ function PlanDetail() {
     console.log(id);
     useEffect(async () => {
         console.log("inside useeffect");
-        const data = await axios.get("/plans/plan/"+id)
+        const data = await axios.get("https://apnazayka101.herokuapp.com/plans/plan/"+id)
         console.log("data = ==> ",data.data.data);
         delete data.data.data["_id"]
         delete data.data.data["__v"]
         delete data.data.data["planImages"]
         setplan(data.data.data)
-        const reviews = await axios.get("/review/"+id);
+        const reviews = await axios.get("https://apnazayka101.herokuapp.com/review/"+id);
         // console.log(reviews);
         console.log(reviews.data.data);
         setarr(reviews.data.data)
@@ -35,14 +35,14 @@ function PlanDetail() {
     // console.log("user ",user);
     const handleClick = async () => {
         console.log(123645);
-        const data = await axios.post("/review/crud/"+id, {
+        const data = await axios.post("https://apnazayka101.herokuapp.com/review/crud/"+id, {
             "review": review,
             "rating": rate,
             "user": user.data._id,
             "plan": id
         })
         console.log(data);
-        const reviews = await axios.get("/review/" + id);
+        const reviews = await axios.get("https://apnazayka101.herokuapp.com/review/" + id);
         // console.log(reviews);
         setarr(reviews.data.data);
     }
@@ -50,9 +50,9 @@ function PlanDetail() {
         try{
            
             // console.log("12345",reviewId);
-            let data = await axios.delete("/review/crud/"+id, { data: { "id": reviewId } });
+            let data = await axios.delete("https://apnazayka101.herokuapp.com/review/crud/"+id, { data: { "id": reviewId } });
             console.log(data.config.data);
-            const reviews = await axios.get("/review/" + id);
+            const reviews = await axios.get("https://apnazayka101.herokuapp.com/review/" + id);
             console.log(reviews);
             setarr(reviews.data.data);
             alert("review deleted");

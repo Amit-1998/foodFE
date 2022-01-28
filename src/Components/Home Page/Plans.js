@@ -9,7 +9,7 @@ function Plans() {
 
     useEffect(async () => {
         try {
-            const data = await axios.get("/plans/top3");
+            const data = await axios.get("https://apnazayka101.herokuapp.com/plans/top3");
             console.log("data ------> ",data.data.data);
             arrset(data.data.data);
             
