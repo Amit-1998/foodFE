@@ -10,7 +10,7 @@ function Plans() {
     useEffect(async () => {
         try {
             const data = await axios.get("/plans/top3");
-            console.log(data,23443);
+            console.log("data ------> ",data.data.data);
             arrset(data.data.data);
             
         } catch (err) {
@@ -50,7 +50,7 @@ function Plans() {
                                 <p className='point'>{ele.ratingsAverage} rated meal.</p>
                             </div>
                         </div>
-                        <button className='btn'>I'm Hungry</button>
+                        <button className='btn'><Link to={`/planDetail/${ele._id}`}>I'm Hungry</Link></button>
                     </div>
                 )}
             </div>
