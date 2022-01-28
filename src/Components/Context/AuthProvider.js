@@ -27,6 +27,10 @@ function AuthProvider({ children }) {
             const data = await axios.post("https://apnazayka101.herokuapp.com/user/login", {
                 email: email,
                 password: password
+            }, {
+                headers: {
+                    credentials:"include",
+                }
             });
             console.log("dataaa",data.data);
             userSet(data.data);
