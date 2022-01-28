@@ -17,8 +17,8 @@ function PlanDetail() {
         console.log("inside useeffect");
         const data = await axios.get("/plans/plan/"+id)
         console.log("data = ==> ",data.data.data);
-       // delete data.data.data["_id"]
-      //  delete data.data.data["__v"]
+        delete data.data.data["_id"]
+        delete data.data.data["__v"]
         setplan(data.data.data)
         const reviews = await axios.get("/review/"+id);
         // console.log(reviews);
