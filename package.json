@@ -30,7 +30,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "prebuild": "set CI=true&react-scripts test --colors",
+    "prebuild": "set CI=true",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build",
