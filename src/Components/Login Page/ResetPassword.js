@@ -10,7 +10,7 @@ function ResetPassword() {
     const {token} = useParams();
     const [password, passwordSet] = useState("");
     const [confirm, setConfirm] = useState("");
-    
+    console.log("param ----->" ,token);
     const handleResetPassword=async()=>{
         try{
             const data=await axios.post(`https://apnazayka101.herokuapp.com/user/backendResetPassword/${token}`,{
