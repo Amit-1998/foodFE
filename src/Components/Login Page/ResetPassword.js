@@ -13,7 +13,7 @@ function ResetPassword() {
     
     const handleResetPassword=async()=>{
         try{
-            const data=await axios.post(`https://apnazayka101.herokuapp.com/user/resetpassword/${token}`,{
+            const data=await axios.post(`https://apnazayka101.herokuapp.com/user/backendResetPassword/${token}`,{
                 password:password,
                 confirmPassword:confirm
             });
