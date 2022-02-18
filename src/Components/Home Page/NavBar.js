@@ -6,7 +6,7 @@ import '../Styles/nav.css'
 function NavBar() {
     // console.log(localStorage.getItem("user"));
     const { user, logout } = useAuth()
- 
+  // new comment
     useEffect(() => {
         let navBar = document.querySelector("nav");
 
